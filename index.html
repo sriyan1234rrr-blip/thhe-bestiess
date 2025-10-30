@@ -12,7 +12,6 @@
       color: #35233e;
       margin: 0;
     }
-
     header {
       background: #ad4393;
       color: #fff;
@@ -21,7 +20,6 @@
       font-family: 'Playfair Display', serif;
       box-shadow: 0 0 64px #fbe9f2;
     }
-
     header h1 {
       font-size: 2.4rem;
       letter-spacing: 3px;
@@ -31,111 +29,107 @@
     header p {
       font-size: 1.33rem;
       margin-bottom: 18px;
-    }   
-    
-    .three-d-model {
-      margin: 40px auto 48px auto;
-      max-width: 440px;
-      padding: 18px;
-      background: #fff6fd;
-      border-radius: 18px;
-      box-shadow: 0 4px 40px #c363a3a2;
-      text-align: center;
     }
-    .three-d-model h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
+    .cart-button {
+      position: fixed;
+      top: 18px; right: 24px;
+      background: #fff4f9;
       color: #ad4393;
-      margin-bottom: 15px;
-    }
-    .three-d-model iframe {
-      width: 100%;
-      height: 340px;
       border: none;
-      border-radius: 12px;
-      background: #f7edfa;
+      padding: 12px 32px 12px 24px;
+      border-radius: 22px;
+      box-shadow: 0 2px 10px #e5a6d8a0;
+      font-size: 1.13rem;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 1040;
+      transition: box-shadow 0.2s;
     }
-    .gallery-title {
-      font-family: 'Playfair Display', serif;
-      color: #93477a;
-      font-size: 2rem;
-      text-align: center;
-      margin-top: 68px;
-      margin-bottom: 18px;
-      letter-spacing: 2px;
+    .cart-button:after {
+      content: '🛒';
+      font-size: 1.15em;
+      margin-left: 7px;
     }
     .product-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2em;
-      margin: 0 auto 54px auto;
-      max-width: 1400px;
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 2em; margin: 0 auto 54px auto; max-width: 1400px;
     }
     .product-card {
-      width: 300px;
-      margin: 18px;
-      padding: 15px;
-      background: rgba(255,255,255,0.88);
-      box-shadow: 0 10px 32px rgba(170,46,105,0.18);
-      border-radius: 16px;
-      transition: transform 0.5s, box-shadow 0.5s;
-      text-align: center;
+      background: rgba(255,255,255,0.92);
+      width: 300px; margin: 18px; padding: 15px;
+      border-radius: 16px; box-shadow: 0 10px 32px #aa2e690f;
+      text-align: center; transition: transform 0.5s, box-shadow 0.5s;
       position: relative;
-      font-family: 'Poppins', Arial, sans-serif;
     }
-    .product-card:hover {
-      transform: scale(1.06) rotateY(8deg);
-      box-shadow: 0 24px 48px rgba(170,46,105,0.25);
-      z-index: 10;
-    }
-    .product-image {
-      width: 90%;
-      border-radius: 12px;
-      box-shadow: 0 4px 18px rgba(121,22,90,0.15);
-      margin-bottom: 14px;
-    }
+    .product-card:hover { transform: scale(1.045); box-shadow: 0 24px 48px #aa2e6940; z-index: 2;}
+    .product-image { width: 92%; border-radius: 12px; margin: 12px auto; cursor:pointer;}
     .product-title {
-      font-size: 1.15rem;
-      color: #ad4393;
-      font-family: 'Playfair Display', serif;
-      margin-top: 2px;
-      margin-bottom: 3px;
-      font-weight: 700;
+      font-size: 1.12rem; color: #ad4393; font-weight: 600;
+      font-family: 'Playfair Display', serif; margin: 10px 0 2px 0;
+      cursor: pointer;
     }
-    .product-desc {
-      color: #35233e;
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-    .product-attr {
-      font-size: 0.82rem;
-      color: #b07c96;
-    }
+    .attribution { font-size: 0.92rem; color: #351f41;
+      background: #fce7f5; margin: 24px auto; padding: 12px;
+      border-radius: 8px; width: 80%; text-align: center; }
     .footer {
-      background: #ad4393;
-      color: #fff;
-      padding: 32px;
-      text-align: center;
-      font-family: 'Poppins', Arial, sans-serif;
-      margin-top: 72px;
-      font-size: 1rem;
-      letter-spacing: 1px;
+      background: #ad4393; color: #fff;
+      padding: 32px; text-align: center;
+      font-family: 'Poppins', Arial, sans-serif; font-size: 1rem;
+      letter-spacing: 1px; margin-top: 72px;
     }
-    .attribution {
-      font-size: 0.95rem;
-      color: #351f41;
-      background: #fce7f5;
-      margin: 24px auto;
-      padding: 12px;
-      border-radius: 8px;
-      width: 80%;
+    /* Modal styles */
+    .modal, .cart-modal, .checkout-modal, .otp-modal, .payment-modal, .success-modal {
+      display: none; position: fixed; z-index: 2000;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      overflow: auto; background: rgba(86, 24, 56, 0.25);
+    }
+    .modal-content, .cart-content, .checkout-content, .otp-content, .payment-content, .success-content {
+      background: #fff9fe; margin: 40px auto; border-radius: 18px;
+      box-shadow: 0 10px 54px #d74bc155; max-width: 440px;
+      padding: 24px 18px; position: relative;
       text-align: center;
     }
+    .close, .close-cart, .close-checkout, .close-otp, .close-payment, .close-success {
+      color: #ad4393; font-size: 2.1rem;
+      position: absolute; right: 24px; top: 12px;
+      font-weight: bold; cursor: pointer; z-index: 3;
+      background: none; border: none;
+    }
+    .add-to-cart-btn {
+      background: #ad4393; color: #fff; border: none;
+      padding: 10px 22px; border-radius: 14px; font-size: 1rem;
+      margin: 14px 0 0 0; cursor: pointer; font-family: 'Poppins', Arial, sans-serif;
+      font-weight: 600; box-shadow: 0 4px 13px #fcb3eb56; 
+      transition: background 0.2s;
+    }
+    .add-to-cart-btn:hover { background: #93477a; }
+    .remove-product-btn {
+      background: #fde8f6; color: #ad4393; border: none;
+      padding: 5px 13px; border-radius: 8px; cursor: pointer;
+      font-size: 0.95rem; margin-top: 9px;
+    }
+    .checkout-btn, .pay-btn, .verify-btn, .send-otp-btn {
+      background: #ad4393; color: #fff; border: none; font-family: 'Poppins', Arial, sans-serif;
+      padding: 11px 26px; border-radius: 12px; font-size: 1.08rem;
+      margin: 18px 0 0 0; cursor: pointer; font-weight: 600;
+      box-shadow: 0 4px 13px #fcb3eb32;
+    }
+    .checkout-btn[disabled], .pay-btn[disabled], .verify-btn[disabled], .send-otp-btn[disabled] {
+      background: #c694b7; color: #faf6f9; cursor: not-allowed;
+    }
+    input, textarea {
+      font-size: 1.05em; padding: 7px 12px; margin: 8px 0 13px 0; border-radius: 8px; border: 1px solid #b07c96;
+      width: 90%; outline: none; font-family: 'Poppins', Arial, sans-serif;
+    }
+    input:invalid { border-color: #e03a3a; }
+    .form-group { text-align: left; margin: 12px 7%;}
+    .form-group label { font-size: 0.97em; color:#522b45;}
+    .form-message { color:#d82e68; margin: 2px 0 0 8px; font-size: 0.93em; min-height: 20px;}
     @media (max-width: 800px) {
       .product-gallery { gap: 1em; }
       .product-card { width: 92vw; max-width: 320px; }
       header { font-size: 1.1rem; }
+      .modal-content, .cart-content, .checkout-content, .otp-content, .payment-content, .success-content { max-width: 94vw;}
     }
   </style>
 </head>
@@ -144,189 +138,267 @@
     <h1>thhe bestiess</h1>
     <p>Romantic Luxury Clothing & Accessories—Find Your Inner Queen</p>
   </header>
-
-  <div class="three-d-model">
-    <h2>3D Mannequin Preview</h2>
-    <!-- Swap this Sketchfab iframe with your own 3D model link later! -->
-    <iframe src="https://sketchfab.com/models/3f8c00ff27814df5b14a37b3dff25257/embed" title="3D Mannequin Placeholder"></iframe>
-    <p style="color:#ad4393; font-size:1rem; margin-top:9px;">Easily update with your own 3D model!</p>
+  <button class="cart-button" onclick="openCart()">Cart (<span id="cart-count">0</span>)</button>
+  <div class="gallery-title" style="font-family:'Playfair Display',serif;color:#93477a;font-size:2rem;text-align:center;margin-top:44px;margin-bottom:18px;letter-spacing:2px;">
+    Featured Products
   </div>
-
-  <div class="gallery-title">Featured Products</div>
-  <div class="product-gallery">
-
-    <!-- --- PRODUCT CARDS BEGIN --- -->
-
-    <!-- CARD 1 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/037/918/496/small_2x/ai-generated-beautiful-young-woman-with-red-roses-against-a-sunset-backdrop-on-the-beach-of-the-sea-banner-with-copy-space-can-be-used-in-greeting-cards-or-romantic-event-promotions-photo.jpeg" alt="AI generated Beautiful young woman with roses" class="product-image">
-      <h3 class="product-title">Enchanted Evening Dress</h3>
-      <p class="product-desc">Romantic vibes with red roses by the sunset, perfect for seaside dates or special evenings.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 2 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/057/198/621/small_2x/young-woman-surrounded-by-colorful-flowers-in-a-bright-flower-shop-during-the-afternoon-photo.jpg" alt="Young woman surrounded by colorful flowers" class="product-image">
-      <h3 class="product-title">Blossom Whisper Top</h3>
-      <p class="product-desc">Inspired by afternoon florals, this romantic top is for garden parties and joyful moments.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 3 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/062/095/763/small_2x/beauty-outdoors-with-a-bouquet-of-colorful-flowers-photo.jpg" alt="Beauty outdoors with a bouquet of colorful flowers" class="product-image">
-      <h3 class="product-title">Secret Garden Skirt</h3>
-      <p class="product-desc">A skirt inspired by outdoor beauty and bold bouquets. Perfect for romantic strolls and special dates.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 4 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/055/097/273/small_2x/portrait-of-a-woman-holding-a-bouquet-of-red-roses-against-a-pink-wall-in-bright-daylight-photo.jpg" alt="Portrait of a woman holding a bouquet of red roses" class="product-image">
-      <h3 class="product-title">Heartstrings Blouse</h3>
-      <p class="product-desc">This blouse radiates love and warmth―bright roses, soft pinks, perfect for romantic daylight occasions.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 5 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/027/547/597/small_2x/girl-walking-down-the-street-with-a-bouquet-of-flowers-photo.jpg" alt="Girl walking down the street with a bouquet of flowers" class="product-image">
-      <h3 class="product-title">Velvet Romance Gown</h3>
-      <p class="product-desc">A gown for dreamy days, inspired by city walks and vibrant flower bouquets in hand.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 6 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/055/097/102/small_2x/woman-with-red-roses-against-a-vibrant-pink-background-showcasing-beauty-and-elegance-photo.jpg" alt="Woman with red roses against a vibrant pink background" class="product-image">
-      <h3 class="product-title">Luna Lace Dress</h3>
-      <p class="product-desc">Celebrating beauty and elegance, this lace dress glows like the full moon in rose-tinted romance.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 7 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/046/086/539/small_2x/sitting-on-a-sundrenched-balcony-a-girl-with-flowy-pink-dress-and-flower-crown-on-her-head-taps-her-toes-to-a-soft-girl-music-playlist-her-eyes-closed-and-a-serene-smile-on-her-lips-photo.jpg" alt="Girl with flowy pink dress and flower crown, relaxing" class="product-image">
-      <h3 class="product-title">Petal Kiss Camisole</h3>
-      <p class="product-desc">Soft and flowy, this camisole brings gentle music and flower magic into every relaxing sunset mood.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 8 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/032/628/524/small_2x/elegant-woman-with-perfect-wavy-hairs-making-self-portrai-by-camera-wearing-pink-dress-photo.jpg" alt="Elegant woman, wavy hair, in a pink dress, taking a selfie" class="product-image">
-      <h3 class="product-title">Golden Aura Tunic</h3>
-      <p class="product-desc">A tunic that glows with confidence, featuring selfie-ready elegance and soft wavy glam for every occasion.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 9 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/034/593/389/small_2x/valentine-s-day-portrait-of-beautiful-young-asian-woman-in-sunglasses-on-red-background-with-hearts-ai-generated-photo.jpg" alt="Valentine's day: Beautiful Asian woman, hearts background" class="product-image">
-      <h3 class="product-title">True Love Hoodie</h3>
-      <p class="product-desc">Fun, flirty, and full of heart. This hoodie was made for celebrating romance in bold, playful style.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 10 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/037/372/646/small_2x/ai-generated-lady-in-a-red-dress-lying-on-the-floor-with-red-rose-petals-background-in-valentine-day-concept-photo.jpg" alt="Lady in a red dress with rose petals, Valentine's Day concept" class="product-image">
-      <h3 class="product-title">Dreamcatcher Shorts</h3>
-      <p class="product-desc">For the bold and romantic. Red rose petals and dreamy poses make these shorts perfect for Valentine’s Day and self-love.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 11 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/057/590/288/small_2x/girl-in-blue-dress-stands-nearby-wooden-fence-in-the-garden-photo.jpg" alt="Girl in blue dress by wooden fence in garden" class="product-image">
-      <h3 class="product-title">Embrace Cardigan</h3>
-      <p class="product-desc">A cozy cardigan inspired by tranquil gardens and gentle blue hues, perfect for peaceful romantic escapes.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 12 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/027/547/603/small_2x/girl-walking-down-the-street-with-a-bouquet-of-flowers-photo.jpg" alt="Girl walking down the street with a bouquet of flowers" class="product-image">
-      <h3 class="product-title">Starlit Satin Pants</h3>
-      <p class="product-desc">Elegant satin pants inspired by the freedom of city walks and the romance of fresh bouquets.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 13 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/039/993/389/small_2x/ai-generated-woman-in-ruffle-design-gown-in-lavender-field-at-sunset-bridal-beauty-style-campaign-wedding-fashion-look-and-glamour-hairstyle-photo.jpg" alt="Woman in ruffle design gown, lavender field at sunset" class="product-image">
-      <h3 class="product-title">Rosy Dream Shirt</h3>
-      <p class="product-desc">Lavender fields and flowing ruffles meet sunset romance in this dreamy, poetic bridal-inspired shirt.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 14 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/055/549/162/small_2x/portrait-of-a-young-girl-in-a-scarlet-fluffy-dress-in-a-wild-field-at-sunset-soft-sunlight-photo.jpg" alt="Girl in scarlet fluffy dress, wild field at sunset" class="product-image">
-      <h3 class="product-title">Sweet Promise Sweater</h3>
-      <p class="product-desc">Scarlet and soft, this sweater is for magical wild field sunsets and making promises to yourself.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 15 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/037/954/658/small_2x/ai-generated-close-up-of-a-young-pregnant-woman-touching-her-stomach-the-concept-of-pregnancy-photo.jpg" alt="Close-up of pregnant woman touching her stomach" class="product-image">
-      <h3 class="product-title">Affection Blazer</h3>
-      <p class="product-desc">Designed to embrace every stage of love, this blazer is timeless, supportive, and forever chic.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 16 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/037/376/791/small_2x/ai-generated-bold-elegance-beautiful-girl-adorned-by-a-vibrant-painterly-background-photo.jpg" alt="Bold elegance: beautiful girl, vibrant painterly background" class="product-image">
-      <h3 class="product-title">Cherish Culottes</h3>
-      <p class="product-desc">Bold and beautiful, these culottes bring painterly elegance and vibrant romance to every occasion.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 17 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/047/003/216/small_2x/japanese-girl-with-blonde-hair-and-green-eyes-wearing-a-sweater-photo.jpg" alt="Japanese girl with blonde hair and green eyes wearing a sweater" class="product-image">
-      <h3 class="product-title">Passion Petals Dress</h3>
-      <p class="product-desc">Unique beauty in blonde, green, and bold fashion—this dress celebrates diversity and romantic passion.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 18 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/049/633/468/small_2x/young-woman-with-bangs-and-a-white-shirt-smiling-looking-at-camera-portrait-photo.jpg" alt="Young woman with bangs and a white shirt, smiling" class="product-image">
-      <h3 class="product-title">Tender Bloom Tee</h3>
-      <p class="product-desc">Simple and sweet, this tee radiates joyful energy and a soft, romantic touch to everyday style.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 19 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/049/633/493/small_2x/beautiful-young-woman-in-japan-asian-beauty-concept-photo.jpg" alt="Beautiful young woman in Japan, Asian beauty concept" class="product-image">
-      <h3 class="product-title">Serenity Suit</h3>
-      <p class="product-desc">Inspired by the beauty of Japan—this suit is calm, sophisticated, and perfect for serene romantic evenings.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-
-    <!-- CARD 20 -->
-    <div class="product-card">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/015/855/520/small_2x/group-of-girl-friends-having-fun-in-the-city-photo.jpg" alt="Group of girl friends having fun in the city" class="product-image">
-      <h3 class="product-title">Bestie Glow Jumpsuit</h3>
-      <p class="product-desc">A jumpsuit celebrating friendship, fun, and the confidence of women supporting one another in style.</p>
-      <p class="product-attr">Photo: Vecteezy.com</p>
-    </div>
-    <!-- --- PRODUCT CARDS END --- -->
-
+  <div class="product-gallery" id="product-gallery">
+    <!-- JS inserts products here -->
   </div>
-
   <div class="attribution">
     © thhe bestiess | Free product images attributed to Vecteezy.com<br>
     <em>You must add "Photo: Vecteezy.com" to product credits (as shown).</em>
   </div>
-
   <div class="footer">
     &copy; 2025 thhe bestiess | Luxury with Love | All rights reserved.
   </div>
+  <!-- PRODUCT MODAL -->
+  <div class="modal" id="product-modal">
+    <div class="modal-content" id="modal-content">
+      <button class="close" onclick="closeModal()">&times;</button>
+    </div>
+  </div>
+  <!-- CART MODAL -->
+  <div class="cart-modal" id="cart-modal">
+    <div class="cart-content" id="cart-content">
+      <button class="close-cart" onclick="closeCart()">&times;</button>
+    </div>
+  </div>
+  <!-- CHECKOUT MODAL -->
+  <div class="checkout-modal" id="checkout-modal">
+    <div class="checkout-content" id="checkout-content">
+      <button class="close-checkout" onclick="closeCheckout()">&times;</button>
+    </div>
+  </div>
+  <!-- OTP MODAL -->
+  <div class="otp-modal" id="otp-modal">
+    <div class="otp-content" id="otp-content">
+      <button class="close-otp" onclick="closeOTP()">&times;</button>
+    </div>
+  </div>
+  <!-- PAYMENT MODAL -->
+  <div class="payment-modal" id="payment-modal">
+    <div class="payment-content" id="payment-content">
+      <button class="close-payment" onclick="closePayment()">&times;</button>
+    </div>
+  </div>
+  <!-- SUCCESS MODAL -->
+  <div class="success-modal" id="success-modal">
+    <div class="success-content" id="success-content">
+      <button class="close-success" onclick="closeSuccess()">&times;</button>
+    </div>
+  </div>
+<script>
+const PRODUCTS = [
+  {id:1,title:"Enchanted Evening Dress",desc:"Romantic vibes with red roses by the sunset, perfect for seaside dates or special evenings.",img:"https://static.vecteezy.com/system/resources/thumbnails/037/918/496/small_2x/ai-generated-beautiful-young-woman-with-red-roses-against-a-sunset-backdrop-on-the-beach-of-the-sea-banner-with-copy-space-can-be-used-in-greeting-cards-or-romantic-event-promotions-photo.jpeg",attr:"Photo: Vecteezy.com",price:4999},
+  {id:2,title:"Blossom Whisper Top",desc:"Inspired by afternoon florals, this romantic top is for garden parties and joyful moments.",img:"https://static.vecteezy.com/system/resources/thumbnails/057/198/621/small_2x/young-woman-surrounded-by-colorful-flowers-in-a-bright-flower-shop-during-the-afternoon-photo.jpg",attr:"Photo: Vecteezy.com",price:2099},
+  {id:3,title:"Secret Garden Skirt",desc:"A skirt inspired by outdoor beauty and bold bouquets. Perfect for romantic strolls and special dates.",img:"https://static.vecteezy.com/system/resources/thumbnails/062/095/763/small_2x/beauty-outdoors-with-a-bouquet-of-colorful-flowers-photo.jpg",attr:"Photo: Vecteezy.com",price:2399},
+  {id:4,title:"Heartstrings Blouse",desc:"This blouse radiates love and warmth―bright roses, soft pinks, perfect for romantic daylight occasions.",img:"https://static.vecteezy.com/system/resources/thumbnails/055/097/273/small_2x/portrait-of-a-woman-holding-a-bouquet-of-red-roses-against-a-pink-wall-in-bright-daylight-photo.jpg",attr:"Photo: Vecteezy.com",price:2599},
+  {id:5,title:"Velvet Romance Gown",desc:"A gown for dreamy days, inspired by city walks and vibrant flower bouquets in hand.",img:"https://static.vecteezy.com/system/resources/thumbnails/027/547/597/small_2x/girl-walking-down-the-street-with-a-bouquet-of-flowers-photo.jpg",attr:"Photo: Vecteezy.com",price:5999},
+  {id:6,title:"Luna Lace Dress",desc:"Celebrating beauty and elegance, this lace dress glows like the full moon in rose-tinted romance.",img:"https://static.vecteezy.com/system/resources/thumbnails/055/097/102/small_2x/woman-with-red-roses-against-a-vibrant-pink-background-showcasing-beauty-and-elegance-photo.jpg",attr:"Photo: Vecteezy.com",price:4299},
+  {id:7,title:"Petal Kiss Camisole",desc:"Soft and flowy, this camisole brings gentle music and flower magic into every relaxing sunset mood.",img:"https://static.vecteezy.com/system/resources/thumbnails/046/086/539/small_2x/sitting-on-a-sundrenched-balcony-a-girl-with-flowy-pink-dress-and-flower-crown-on-her-head-taps-her-toes-to-a-soft-girl-music-playlist-her-eyes-closed-and-a-serene-smile-on-her-lips-photo.jpg",attr:"Photo: Vecteezy.com",price:2299},
+  {id:8,title:"Golden Aura Tunic",desc:"A tunic that glows with confidence, featuring selfie-ready elegance and soft wavy glam for every occasion.",img:"https://static.vecteezy.com/system/resources/thumbnails/032/628/524/small_2x/elegant-woman-with-perfect-wavy-hairs-making-self-portrai-by-camera-wearing-pink-dress-photo.jpg",attr:"Photo: Vecteezy.com",price:2499},
+  {id:9,title:"True Love Hoodie",desc:"Fun, flirty, and full of heart. This hoodie was made for celebrating romance in bold, playful style.",img:"https://static.vecteezy.com/system/resources/thumbnails/034/593/389/small_2x/valentine-s-day-portrait-of-beautiful-young-asian-woman-in-sunglasses-on-red-background-with-hearts-ai-generated-photo.jpg",attr:"Photo: Vecteezy.com",price:1599},
+  {id:10,title:"Dreamcatcher Shorts",desc:"For the bold and romantic. Red rose petals and dreamy poses make these shorts perfect for Valentine’s Day and self-love.",img:"https://static.vecteezy.com/system/resources/thumbnails/037/372/646/small_2x/ai-generated-lady-in-a-red-dress-lying-on-the-floor-with-red-rose-petals-background-in-valentine-day-concept-photo.jpg",attr:"Photo: Vecteezy.com",price:999},
+  {id:11,title:"Embrace Cardigan",desc:"A cozy cardigan inspired by tranquil gardens and gentle blue hues, perfect for peaceful romantic escapes.",img:"https://static.vecteezy.com/system/resources/thumbnails/057/590/288/small_2x/girl-in-blue-dress-stands-nearby-wooden-fence-in-the-garden-photo.jpg",attr:"Photo: Vecteezy.com",price:1999},
+  {id:12,title:"Starlit Satin Pants",desc:"Elegant satin pants inspired by the freedom of city walks and the romance of fresh bouquets.",img:"https://static.vecteezy.com/system/resources/thumbnails/027/547/603/small_2x/girl-walking-down-the-street-with-a-bouquet-of-flowers-photo.jpg",attr:"Photo: Vecteezy.com",price:1599},
+  {id:13,title:"Rosy Dream Shirt",desc:"Lavender fields and flowing ruffles meet sunset romance in this dreamy, poetic bridal-inspired shirt.",img:"https://static.vecteezy.com/system/resources/thumbnails/039/993/389/small_2x/ai-generated-woman-in-ruffle-design-gown-in-lavender-field-at-sunset-bridal-beauty-style-campaign-wedding-fashion-look-and-glamour-hairstyle-photo.jpg",attr:"Photo: Vecteezy.com",price:2799},
+  {id:14,title:"Sweet Promise Sweater",desc:"Scarlet and soft, this sweater is for magical wild field sunsets and making promises to yourself.",img:"https://static.vecteezy.com/system/resources/thumbnails/055/549/162/small_2x/portrait-of-a-young-girl-in-a-scarlet-fluffy-dress-in-a-wild-field-at-sunset-soft-sunlight-photo.jpg",attr:"Photo: Vecteezy.com",price:1899},
+  {id:15,title:"Affection Blazer",desc:"Designed to embrace every stage of love, this blazer is timeless, supportive, and forever chic.",img:"https://static.vecteezy.com/system/resources/thumbnails/037/954/658/small_2x/ai-generated-close-up-of-a-young-pregnant-woman-touching-her-stomach-the-concept-of-pregnancy-photo.jpg",attr:"Photo: Vecteezy.com",price:3399},
+  {id:16,title:"Cherish Culottes",desc:"Bold and beautiful, these culottes bring painterly elegance and vibrant romance to every occasion.",img:"https://static.vecteezy.com/system/resources/thumbnails/037/376/791/small_2x/ai-generated-bold-elegance-beautiful-girl-adorned-by-a-vibrant-painterly-background-photo.jpg",attr:"Photo: Vecteezy.com",price:2199},
+  {id:17,title:"Passion Petals Dress",desc:"Unique beauty in blonde, green, and bold fashion—this dress celebrates diversity and romantic passion.",img:"https://static.vecteezy.com/system/resources/thumbnails/047/003/216/small_2x/japanese-girl-with-blonde-hair-and-green-eyes-wearing-a-sweater-photo.jpg",attr:"Photo: Vecteezy.com",price:3499},
+  {id:18,title:"Tender Bloom Tee",desc:"Simple and sweet, this tee radiates joyful energy and a soft, romantic touch to everyday style.",img:"https://static.vecteezy.com/system/resources/thumbnails/049/633/468/small_2x/young-woman-with-bangs-and-a-white-shirt-smiling-looking-at-camera-portrait-photo.jpg",attr:"Photo: Vecteezy.com",price:899},
+  {id:19,title:"Serenity Suit",desc:"Inspired by the beauty of Japan—this suit is calm, sophisticated, and perfect for serene romantic evenings.",img:"https://static.vecteezy.com/system/resources/thumbnails/049/633/493/small_2x/beautiful-young-woman-in-japan-asian-beauty-concept-photo.jpg",attr:"Photo: Vecteezy.com",price:3199},
+  {id:20,title:"Bestie Glow Jumpsuit",desc:"A jumpsuit celebrating friendship, fun, and the confidence of women supporting one another in style.",img:"https://static.vecteezy.com/system/resources/thumbnails/015/855/520/small_2x/group-of-girl-friends-having-fun-in-the-city-photo.jpg",attr:"Photo: Vecteezy.com",price:2499}
+];
+let cart = [];
+let checkoutData = {};
+let verifiedPhone = false;
+function renderGallery() {
+  const gallery = document.getElementById('product-gallery');
+  gallery.innerHTML = PRODUCTS.map(p => `
+    <div class="product-card">
+      <img src="${p.img}" alt="${p.title}" class="product-image" onclick="showProduct(${p.id})">
+      <h3 class="product-title" onclick="showProduct(${p.id})">${p.title}</h3>
+      <p style="margin:0 0 9px 0;"><b>₹${p.price}</b></p>
+      <button class="add-to-cart-btn" onclick="addToCart(${p.id})">Add to Cart</button>
+      <p class="product-attr">${p.attr}</p>
+    </div>
+  `).join('');
+}
+function showProduct(prodId) {
+  const p = PRODUCTS.find(x => x.id === prodId);
+  document.getElementById("product-modal").style.display = "block";
+  document.getElementById("modal-content").innerHTML = `
+    <button class="close" onclick="closeModal()">&times;</button>
+    <img src="${p.img}" alt="${p.title}" style="max-width:96%;border-radius:13px;">
+    <h2 style="font-family:'Playfair Display',serif;color:#ad4393;margin:14px 0 5px 0">${p.title}</h2>
+    <p style="margin-bottom:14px;font-weight:600;font-size:1.17em;color:#822e58;">₹${p.price}</p>
+    <div style="margin-bottom:10px;color:#35233e;">${p.desc}</div>
+    <button class="add-to-cart-btn" onclick="addToCart(${p.id});closeModal()">Add to Cart</button>
+    <p class="product-attr" style="margin-top:9px;">${p.attr}</p>
+  `;
+}
+function closeModal(){document.getElementById("product-modal").style.display="none";}
+function addToCart(prodId){
+  const prod = PRODUCTS.find(x=>x.id===prodId);
+  const inCart = cart.find(x=>x.id===prodId);
+  if (!inCart) {
+    cart.push({...prod,qty:1});
+  } else {
+    inCart.qty += 1;
+  }
+  updateCartCount();
+}
+function updateCartCount(){
+  document.getElementById("cart-count").innerText = cart.reduce((a,b)=>a+b.qty,0);
+}
+function openCart(){
+  document.getElementById("cart-modal").style.display="block";
+  renderCart();
+}
+function closeCart(){document.getElementById("cart-modal").style.display="none";}
+function renderCart(){
+  let html = '<button class="close-cart" onclick="closeCart()">&times;</button>';
+  if (cart.length===0) {
+    html += `<h2>Your Cart is Empty</h2>
+    <div style="margin:24px 0 12px 0;">Add products to your cart to buy them.</div>`;
+  } else {
+    let total = 0;
+    html += '<h2>Your Cart</h2>';
+    html += '<ul style="list-style:none;padding:0;text-align:left;">';
+    cart.forEach((p,i)=>{
+      html += `<li style="margin-bottom:15px;">
+        <span style="font-weight:600;">${p.title}</span> 
+        <span style="float:right;">₹${p.price} x ${p.qty} = ₹${p.price*p.qty}</span><br>
+        <button class="remove-product-btn" onclick="removeFromCart(${p.id})">Remove</button>
+      </li>`;
+      total += p.price*p.qty;
+    });
+    html += '</ul>';
+    html += `<div style="font-size:1.1em;font-weight:600;margin:12px 0 19px 0;color:#ad4393;">Total: ₹${total}</div>
+    <button class="checkout-btn" onclick="openCheckout()" ${cart.length===0?'disabled':''}>Proceed to Checkout</button>`;
+  }
+  document.getElementById("cart-content").innerHTML = html;
+}
+function removeFromCart(pid){
+  cart = cart.filter(x=>x.id!==pid);
+  updateCartCount();
+  renderCart();
+}
+function openCheckout(){
+  document.getElementById("cart-modal").style.display="none";
+  document.getElementById("checkout-modal").style.display="block";
+  checkoutData = {};
+  verifiedPhone = false;
+  renderCheckout();
+}
+function closeCheckout(){document.getElementById("checkout-modal").style.display="none";}
+function renderCheckout(){
+  let total = cart.reduce((a,b)=>a+b.price*b.qty,0);
+  document.getElementById("checkout-content").innerHTML = `
+    <button class="close-checkout" onclick="closeCheckout()">&times;</button>
+    <h2>Checkout</h2>
+    <form id="checkout-form" onsubmit="return startOTPFlow()">
+      <div class="form-group">
+        <label>Name:</label>
+        <input required id="buyer-name" maxlength="30" placeholder="Your Name">
+      </div>
+      <div class="form-group">
+        <label>Address:</label>
+        <textarea required id="buyer-address" rows="2" maxlength="70" placeholder="Delivery address"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Phone (India):</label>
+        <input required id="buyer-phone" maxlength="10" pattern="[6-9]\\d{9}" placeholder="10-digit mobile">
+        <span class="form-message" id="phone-msg"></span>
+      </div>
+      <div style="margin:16px 0 5px 0;">Total to Pay: <b>₹${total}</b></div>
+      <button class="send-otp-btn" type="submit">Verify Phone & Continue</button>
+    </form>
+  `;
+}
+function startOTPFlow(){
+  const name = document.getElementById("buyer-name").value.trim();
+  const address = document.getElementById("buyer-address").value.trim();
+  const phone = document.getElementById("buyer-phone").value.trim();
+  let msg = "";
+  if(!name){msg="Name required!";}
+  else if(!address){msg="Address required!";}
+  else if(!/^[6-9]\d{9}$/.test(phone)){msg="Enter valid Indian mobile (10 digits, starts 6-9)";}
+  if(msg){
+    document.getElementById("phone-msg").innerText = msg;
+    return false;
+  }
+  checkoutData = {name, address, phone};
+  openOTPModal(phone);
+  return false;
+}
+function openOTPModal(phone){
+  document.getElementById("checkout-modal").style.display="none";
+  document.getElementById("otp-modal").style.display="block";
+  document.getElementById("otp-content").innerHTML = `
+    <button class="close-otp" onclick="closeOTP()">&times;</button>
+    <h2>Verify Phone Number</h2>
+    <div>OTP sent to <b>${phone}</b></div>
+    <form id="otp-form" onsubmit="return verifyOTP()">
+      <input required maxlength="6" id="buyer-otp" placeholder="Enter OTP">
+      <span class="form-message" id="otp-msg"></span>
+      <button class="verify-btn" type="submit">Verify OTP</button>
+      <div style="margin:10px 0 0 0;font-size:0.97em;color:#8861a8">Demo OTP is <b>123456</b></div>
+    </form>
+  `;
+}
+function closeOTP(){
+  document.getElementById("otp-modal").style.display="none";
+  openCheckout();
+}
+function verifyOTP(){
+  const otp = document.getElementById("buyer-otp").value.trim();
+  if(otp==="123456"){ verifiedPhone = true; openPaymentModal(); }
+  else {
+    document.getElementById("otp-msg").innerText = "Incorrect OTP! (Use 123456 for demo)";
+  }
+  return false;
+}
+function openPaymentModal(){
+  document.getElementById("otp-modal").style.display="none";
+  document.getElementById("payment-modal").style.display="block";
+  let total = cart.reduce((a,b)=>a+b.price*b.qty,0);
+  document.getElementById("payment-content").innerHTML = `
+    <button class="close-payment" onclick="closePayment()">&times;</button>
+    <h2>Payment</h2>
+    <div style="margin-bottom:15px;">Amount to Pay: <b>₹${total}</b></div>
+    <form id="pay-form" onsubmit="return doPayment()">
+      <input required placeholder="Card/UPI ID (demo)">
+      <button class="pay-btn" type="submit">Pay Now</button>
+    </form>
+    <div style="margin:12px 0;font-size:0.97em;color:#8861a8;">(This is a demo — no money is charged)</div>
+  `;
+}
+function closePayment(){
+  document.getElementById("payment-modal").style.display="none";
+  openCheckout();
+}
+function doPayment(){
+  document.getElementById("payment-modal").style.display="none";
+  cart=[];
+  updateCartCount();
+  document.getElementById("success-modal").style.display="block";
+  document.getElementById("success-content").innerHTML = `
+    <button class="close-success" onclick="closeSuccess()">&times;</button>
+    <h2>Order Successful!</h2>
+    <div style="margin:30px 0 20px 0;">Thank you, <b>${checkoutData.name}</b>.<br>Order placed for delivery to:<br><b>${checkoutData.address}</b><br><br>You’ll get a confirmation at <b>${checkoutData.phone}</b>.</div>
+    <button class="checkout-btn" onclick="closeSuccess()">Continue Shopping</button>
+  `;
+}
+function closeSuccess(){
+  document.getElementById("success-modal").style.display="none";
+  renderCart();
+}
+
+window.onload = function(){ renderGallery(); updateCartCount(); };
+
+</script>
 </body>
 </html>
